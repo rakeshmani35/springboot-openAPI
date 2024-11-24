@@ -16,6 +16,9 @@ In API first design, create API first and than generate the generate the stub co
 #### Swagger Editor to create API
     https://editor.swagger.io/
 
+#### swagger end-point
+	http://localhost:8080/swagger-ui.html
+
 ## OpenAPI specification
 #### API metadata
 ```
@@ -204,3 +207,7 @@ API will be generate
 <img width="508" alt="image" src="https://github.com/user-attachments/assets/dbd0ddbf-9bc1-4603-b2c6-54f38e0a3144">
 
 
+## Swagger test
+	http://localhost:8080/swagger-ui
+
+ <img width="905" alt="image" src="https://github.com/user-attachments/assets/f8bd0613-732a-40e3-a177-45e4a2b00055">
