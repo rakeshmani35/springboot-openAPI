@@ -197,3 +197,10 @@ componenet
 			</plugin>
 ```
 
+## Maven build
+#### mvn clean install -DskipTests
+API will be generate
+
+<img width="508" alt="image" src="https://github.com/user-attachments/assets/dbd0ddbf-9bc1-4603-b2c6-54f38e0a3144">
+
+
