@@ -102,6 +102,7 @@
 							<supportingFilesToGenerate>
 								ApiUtil.java
 							</supportingFilesToGenerate>
+							<typeMappings>int64=Long</typeMappings>
 							<configOptions>
 								<delegatePattern>true</delegatePattern>
 								<serializableModel>true</serializableModel>

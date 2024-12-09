@@ -66,6 +66,12 @@ components:
           minLength: 3
         lastName:
           type: string
+        mobile:
+          type: integer
+          format: int64
+        salary:
+          type: number
+          format: double
 
     UserResponseDTO:
       type: object
@@ -83,6 +89,12 @@ components:
           minLength: 3
         lastName:
           type: string
+        mobile:
+          type: integer
+          format: int64
+        salary:
+          type: number
+          format: double
 
     Error:
       type: object
