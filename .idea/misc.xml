@@ -7,11 +7,17 @@
         <option value="$PROJECT_DIR$/open.api/pom.xml" />
         <option value="$PROJECT_DIR$/myopenapiplanet/pom.xml" />
         <option value="$PROJECT_DIR$/springboot.-openapi-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/pets-orders-api/pom.xml" />
+        <option value="$PROJECT_DIR$/pets-orders-api-new/pom.xml" />
+        <option value="$PROJECT_DIR$/pets-orders-openapi/pom.xml" />
+        <option value="$PROJECT_DIR$/pets-orders-asyncapi/pom.xml" />
+        <option value="$PROJECT_DIR$/pets-orders-asyncapi-openapi/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/open.api/pom.xml" />
+        <option value="$PROJECT_DIR$/pets-orders-api-new/pom.xml" />
       </set>
     </option>
   </component>

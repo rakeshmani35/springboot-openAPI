@@ -1,0 +1,73 @@
+asyncapi: 2.6.0
+info:
+  title: Pets Orders Async API
+  version: 1.0.0
+  description: AsyncAPI generated from pets-orders OpenAPI spec
+
+servers:
+  kafkaBroker:
+    url: localhost:9092
+    protocol: kafka
+    description: Local Kafka broker
+
+channels:
+  pets:
+    description: Channel for pet events
+    publish:
+      summary: Emit pet creation or update events
+      message:
+        $ref: "#/components/messages/PetEvent"
+
+  orders:
+    description: Channel for order events
+    publish:
+      summary: Emit order creation or update events
+      message:
+        $ref: "#/components/messages/OrderEvent"
+
+components:
+  messages:
+    PetEvent:
+      name: PetEvent
+      title: Pet Event
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/Pet"
+
+    OrderEvent:
+      name: OrderEvent
+      title: Order Event
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/Order"
+
+  schemas:
+    Pet:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        tag:
+          type: string
+      required:
+        - id
+        - name
+
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        petId:
+          type: integer
+        quantity:
+          type: integer
+        status:
+          type: string
+      required:
+        - id
+        - petId
+        - quantity
+        - status

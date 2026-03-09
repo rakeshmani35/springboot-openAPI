@@ -2,22 +2,40 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="myopenapiplanet" />
+        <module name="pets-orders-asyncapi-openapi" />
         <module name="springboot.-openapi-generator" />
+      </profile>
+      <profile name="Annotation profile for pets-orders-asyncapi" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+        </processorPath>
+        <module name="pets-orders-asyncapi" />
+        <module name="pets-orders-openapi" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="open.api" target="17" />
+      <module name="pets-orders-api-new" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="myopenapiplanet" options="-parameters" />
       <module name="open.api" options="-parameters" />
+      <module name="pets-orders-api-new" options="-parameters" />
+      <module name="pets-orders-asyncapi" options="-parameters" />
+      <module name="pets-orders-asyncapi-openapi" options="-parameters" />
+      <module name="pets-orders-openapi" options="-parameters" />
       <module name="springboot.-openapi-generator" options="-parameters" />
     </option>
   </component>

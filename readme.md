@@ -142,19 +142,35 @@ componenet
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
   </dependency>
-
-<!-- swagger -->
+```
+must add swagger dependency to view swagger UI
+```
+<!-- swagger UI -->
     <dependency>
        <groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.5.0</version>
 		</dependency>
 
+```
+if using springboot2.x version add this dependency
+```
+       
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.8.0</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.6.8</version>
+		</dependency>
+```
+
+use this dependency when plugin 'openapi-generator-maven-plugin' with <openApiNullable>true</openApiNullable>
+```
 
 		<dependency>
 			<groupId>org.openapitools</groupId>
@@ -162,14 +178,12 @@ componenet
 			<version>0.2.6</version>
 		</dependency>
 
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-			<version>1.6.8</version>
-		</dependency>
+
 ```
 #### maven plugin
+1. OpenAPI Generator Plugin(Must)
 ```
+<!-- OpenAPI Generator Plugin -->
  <plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
@@ -193,11 +207,56 @@ componenet
 								<delegatePattern>true</delegatePattern>
 								<serializableModel>true</serializableModel>
 								<useJakartaEe>true</useJakartaEe>
+								<skipDefaultInterface>true</skipDefaultInterface> <!--avoid generation of default main method by API-Generator -- >
 							</configOptions>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
+```
+
+2. Build Helper Maven Plugin(Optional)  
+ By default openapi generator will generate code in target/src/main/java/generateCodeFolder folder.
+if you want the generated code in specific folder then use below configuration
+```
+<output>${project.basedir}/src/main/java/generateCodeFolder</output>
+
+this must in openapi-generator-maven-plugin configuration section
+Like:
+<configuration>
+
+        <!-- 👇 ADD IT HERE -->
+        <output>${project.basedir}/generated</output>
+
+        <inputSpec>${project.basedir}/src/main/resources/openapi.yaml</inputSpec>
+        <generatorName>spring</generatorName>
+        .
+        .
+        .
+</configuration>
+
+```
+And then must add plugin:
+```
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>build-helper-maven-plugin</artifactId>
+  <version>3.5.0</version>
+  <executions>
+    <execution>
+      <id>add-source</id>
+      <phase>generate-sources</phase>
+      <goals>
+        <goal>add-source</goal>
+      </goals>
+      <configuration>
+        <sources>
+          <source>${project.basedir}/generated/src/main/java</source>
+        </sources>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
 ```
 
 ## Maven build
